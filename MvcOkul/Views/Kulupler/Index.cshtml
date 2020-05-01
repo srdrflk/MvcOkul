@@ -1,0 +1,35 @@
+﻿@using MvcOkul.Models.Entity
+@model List<TblKulupler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kulüp Adı</th>
+            <th>Kulüp Kontenjanı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.KulupId</td>
+                <td>@x.KulupAd</td>
+                <td>@x.KulupKontenjan</td>
+                <td><a href="/Kulupler/Listele/@x.KulupId" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/Kulupler/Sil/@x.KulupId" class="btn btn-danger" onclick="return confirm('Silmek istediğinden emin misin?')">Sil</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<br />
+<a href="/Kulupler/Ekle" class="btn btn-primary">Yeni Kulüp Ekle</a>
+

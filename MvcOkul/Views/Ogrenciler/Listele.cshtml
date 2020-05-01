@@ -1,0 +1,36 @@
+﻿@model MvcOkul.Models.Entity.TblOgrenciler
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Güncelle", "Ogrenciler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrAd)
+        @Html.TextBoxFor(x => x.OgrAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrSoyad)
+        @Html.TextBoxFor(x => x.OgrSoyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrFoto)
+        @Html.TextBoxFor(x => x.OgrFoto, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrCinsiyet)
+        @Html.TextBoxFor(x => x.OgrCinsiyet, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrKulup)
+        @Html.DropDownListFor(m => m.TblKulupler.KulupId, (List<SelectListItem>)ViewBag.mesaj, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.OgrKulup, new { @class = "form-control" })*@
+    </div>
+    @Html.HiddenFor(x => x.OgrId)
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Güncelle</button>
+        <button style="margin-left:10px" class="btn btn-warning"><a href="/Ogrenciler/Index">Vazgeç</a></button>
+    </div>
+}
+

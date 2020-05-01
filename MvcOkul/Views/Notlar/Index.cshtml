@@ -1,0 +1,45 @@
+﻿@using MvcOkul.Models.Entity
+@model List<TblNotlar>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Not Id</th>
+            <th>Ders Id</th>
+            <th>Öğrenci Id</th>
+            <th>Sınav 1</th>
+            <th>Sınav 2</th>
+            <th>Sınav 3</th>
+            <th>Proje</th>
+            <th>Ortalama</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.NotId</td>
+                <td>@x.DersId</td>
+                <td>@x.OgrId</td>
+                <td>@x.Sinav1</td>
+                <td>@x.Sinav2</td>
+                <td>@x.Sinav3</td>
+                <td>@x.Proje</td>
+                <td>@x.Ortalama</td>
+                <td>@x.Durum</td>
+                <td><a href="/Notlar/Listele/@x.NotId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Notlar/Ekle" class="btn btn-primary">Yeni Not Ekle</a>
+

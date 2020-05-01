@@ -1,0 +1,49 @@
+﻿@model MvcOkul.Models.Entity.TblNotlar
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Listele", "Notlar", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.OgrId)
+        @Html.TextBoxFor(x => x.OgrId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Sinav1)
+        @Html.TextBoxFor(x => x.Sinav1, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Sinav2)
+        @Html.TextBoxFor(x => x.Sinav2, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Sinav3)
+        @Html.TextBoxFor(x => x.Sinav3, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Proje)
+        @Html.TextBoxFor(x => x.Proje, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Ortalama)
+        @Html.TextBoxFor(x => x.Ortalama, new { @Value= @ViewBag.ortalama, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Durum)
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x => x.NotId)
+    <div style="margin-top:15px">
+        <button type="submit" name="islem" value="Hesapla" class="btn btn-info">Hesapla</button>
+    </div>
+    <div style="margin-top:15px">
+        <button type="submit" name="islem" value="NotGuncelle" class="btn btn-primary">Güncelle</button>
+        <button class="btn btn-warning"><a href="/Notlar/Index">Vazgeç</a></button>
+        <br />
+        
+    </div>
+
+}
+

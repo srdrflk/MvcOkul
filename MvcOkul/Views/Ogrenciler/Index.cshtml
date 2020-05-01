@@ -1,0 +1,40 @@
+﻿@using MvcOkul.Models.Entity
+@model List<TblOgrenciler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Öğrenci Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Foto</th>
+            <th>Cinsiyet</th>
+            <th>Kulüp</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td width="75px">@x.OgrId</td>
+            <td>@x.OgrAd</td>
+            <td>@x.OgrSoyad</td>
+            <td>@x.OgrFoto</td>
+            <td>@x.OgrCinsiyet</td>
+            <td>@x.TblKulupler.KulupAd</td>
+            <td><a href="/Ogrenciler/Listele/@x.OgrId" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Ogrenciler/Sil/@x.OgrId" class="btn btn-danger" onclick="return confirm('Silmek istediğinden emin misin?')">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Ogrenciler/Ekle" class="btn btn-primary">Yeni öğrenci ekle</a>
+

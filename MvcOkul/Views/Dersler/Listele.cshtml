@@ -1,0 +1,19 @@
+﻿@model MvcOkul.Models.Entity.TblDersler
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Güncelle", "Dersler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.DersAd)
+        @Html.TextBoxFor(x => x.DersAd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x => x.DersId)
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Güncelle</button>
+        <button style="margin-left:10px" class="btn btn-warning">Vazgeç</button>
+    </div>
+}
+
